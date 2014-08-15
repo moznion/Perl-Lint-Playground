@@ -25,14 +25,6 @@
     <![endif]-->
 </head>
 <body>
-
-    <div class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Perl::Lint Playground</a>
-            </div>
-        </div><!-- /.container -->
-    </div><!-- /.navbar -->
     <div class="container">
         <div id="main">
             <: block content -> { } :>

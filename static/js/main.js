@@ -45,5 +45,14 @@ $(function () {
             }
         }
     });
+
+    $("#code").val(
+        "use strict;\n" +
+        "use warnings;\n" +
+        "\n" +
+        "print \"Hello, world!!\";\n" +
+        "\n" +
+        "eval 'I am evil!';\n"
+    );
 });
 

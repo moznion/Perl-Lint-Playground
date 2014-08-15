@@ -1,0 +1,7 @@
+{
+  "name": "Perl-Lint-Playground",
+  "version": "0.0.1",
+  "dependencies": {
+    "vue": "~0.10.6"
+  }
+}

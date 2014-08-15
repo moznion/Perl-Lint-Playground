@@ -14,7 +14,7 @@ use File::Path ();
 
 my $app = builder {
     enable 'Plack::Middleware::Static',
-        path => qr{^(?:/static/)},
+        path => qr{^(?:/static/|/bower_components/)},
         root => File::Spec->catdir(dirname(__FILE__), '..');
     enable 'Plack::Middleware::Static',
         path => qr{^(?:/robots\.txt|/favicon\.ico)$},

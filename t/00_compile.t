@@ -1,17 +1,18 @@
 use strict;
 use warnings;
 use Test::More;
+use Path::Tiny;
+use File::Find::Rule;
 
+my $lib_dir = path(__FILE__)->realpath->parent->parent->child('lib') . '';
+my @files = File::Find::Rule->file()->name('*.pm')->in($lib_dir);
 
-use Perl::Lint::Playground;
-use Perl::Lint::Playground::Web;
-use Perl::Lint::Playground::Web::View;
-use Perl::Lint::Playground::Web::ViewFunctions;
-
-use Perl::Lint::Playground::DB::Schema;
-use Perl::Lint::Playground::Web::Dispatcher;
-
-
-pass "All modules can load.";
+for my $path (@files) {
+    $path = path($path)->relative($lib_dir);
+    $path =~ s!/!::!g;
+    $path =~ s!\.pm$!!g;
+    use_ok($path) or die $@;
+}
 
 done_testing;
+

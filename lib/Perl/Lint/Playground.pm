@@ -8,6 +8,7 @@ use 5.008001;
 use parent qw/Amon2/;
 # Enable project local mode.
 __PACKAGE__->make_local_context();
+__PACKAGE__->load_plugins(qw/Web::JSON/);
 
 1;
 __END__

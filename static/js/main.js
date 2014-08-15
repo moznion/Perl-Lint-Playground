@@ -10,7 +10,7 @@ Vue.filter('expl', function (expl) {
 
 $(function () {
     var violations;
-    var apiServerURL = "http://localhost:5000/api";
+    var apiServerURL = "http://perl-lint.moznion.net/api";
 
     var model = new Vue({
         el: '#perl-lint',

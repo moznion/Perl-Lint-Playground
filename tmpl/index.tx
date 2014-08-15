@@ -29,7 +29,7 @@
 
   <p class="warning">{{ error }}</p>
 
-  <button id="submit" class="btn btn-primary" v-on="click: onClick">Lint It!</button>
+  <button id="submit" class="btn btn-primary" v-on="click: onClick">Lint&nbsp;It!</button>
 </div>
 
 : }

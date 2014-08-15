@@ -28,6 +28,7 @@ textarea.code {
 
 button.btn {
   width: 100%;
+  letter-spacing: 0.2em;
 }
 
 .description {

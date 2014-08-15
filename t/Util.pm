@@ -42,9 +42,9 @@ sub slurp {
 # initialize database
 use Perl::Lint::Playground;
 {
-    unlink 'db/test.db' if -f 'db/test.db';
-    system("sqlite3 db/test.db < sql/sqlite.sql");
+    my $db_name = 'perl_lint_playground_test';
+    system(qq{echo "DROP TABLE IF EXISTS source_codes" | mysql -uroot $db_name});
+    system("mysql -uroot $db_name < sql/mysql.sql");
 }
-
 
 1;

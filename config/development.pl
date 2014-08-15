@@ -1,12 +1,12 @@
-use File::Spec;
-use File::Basename qw(dirname);
-my $basedir = File::Spec->rel2abs(File::Spec->catdir(dirname(__FILE__), '..'));
-my $dbpath = File::Spec->catfile($basedir, 'db', 'development.db');
+my $env = 'development';
+
 +{
     'DBI' => [
-        "dbi:SQLite:dbname=$dbpath", '', '',
+        "dbi:mysql:database=perl_lint_playground_$env", '', '',
         +{
-            sqlite_unicode => 1,
-        }
+            mysql_enable_utf8 => 1 ,
+            mysql_auto_reconnect => 1,
+            RaiseError => 1,
+        },
     ],
 };

@@ -40,7 +40,7 @@ $(function () {
             showViolations: true,
         },
         methods: {
-            lint: function (self) {
+            lint: function (mouseEvent, self) {
                 if (!self) {
                     self = this;
                 }
@@ -106,7 +106,7 @@ $(function () {
                 dfd.done(function(res) {
                     if (res.src !== null) {
                         codeArea.val(res.src);
-                        self.lint(self); // pre-lint
+                        self.lint(undefined, self); // pre-lint
                         return;
                     }
 

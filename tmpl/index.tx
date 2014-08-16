@@ -19,7 +19,7 @@
 <br />
 
 <div id="perl-lint">
-  <textarea id="code" class="code form-control" placeholder="Code"></textarea>
+  <textarea id="code" class="code form-control" placeholder="Code"><: $src :></textarea>
 
   <ul id="list" v-show="showViolations">
     <li v-repeat="v: violations">
@@ -29,7 +29,10 @@
 
   <p class="warning">{{ error }}</p>
 
-  <button id="submit" class="btn btn-primary" v-on="click: onClick">Lint&nbsp;It!</button>
+  <button id="submit" class="btn btn-primary" v-on="click: submit">Lint&nbsp;It!</button>
+
+  <button id="share" class="btn btn-success" v-on="click: share">Share</button>
+
 </div>
 
 : }

@@ -31,6 +31,10 @@ button.btn {
   letter-spacing: 0.2em;
 }
 
+button#share {
+  margin: 5px 0px 0px 0px;
+}
+
 .description {
   font-weight: bold;
 }

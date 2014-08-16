@@ -10,14 +10,7 @@ use Perl::Lint::Playground::Web::M::SourceCodes;
 get '/' => sub {
     my ($c) = @_;
 
-    my $src = <<'...';
-use strict;
-use warnings;
-
-print "Hello, world!!";
-
-eval 'I am evil!';
-...
+    my $src = undef;
 
     if (my $id = $c->req->param('id')) {
         my $source_codes = Perl::Lint::Playground::Web::M::SourceCodes->new(id => $id);

@@ -43,8 +43,8 @@ sub slurp {
 use Perl::Lint::Playground;
 {
     my $db_name = 'perl_lint_playground_test';
-    system(qq{echo "DROP TABLE IF EXISTS source_codes" | mysql -uroot $db_name});
-    system("mysql -uroot $db_name < sql/mysql.sql");
+    system(qq{echo "DROP TABLE IF EXISTS source_codes" | mysql $db_name});
+    system("mysql $db_name < sql/mysql.sql");
 }
 
 1;

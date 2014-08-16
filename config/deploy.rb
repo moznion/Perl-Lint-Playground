@@ -21,6 +21,8 @@ task :deploy do
     execute "cd #{release_path}; #{fetch :carton_path} install"
     execute "cd #{release_path}; #{fetch :cpanm_path} -L local/ git://github.com/moznion/Perl-Lint"
 
+    execute "cd #{release_path}; ./author/equip_db.sh production"
+
     execute "#{fetch :supervisorctl_path} restart perl-lint-playground"
   end
 end

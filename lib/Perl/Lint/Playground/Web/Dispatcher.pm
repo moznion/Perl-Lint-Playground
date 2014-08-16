@@ -9,18 +9,24 @@ use Perl::Lint::Playground::Web::M::SourceCodes;
 
 get '/' => sub {
     my ($c) = @_;
+    return $c->render('index.tx', {});
+};
+
+get '/api/src' => sub {
+    my ($c) = @_;
 
     my $src = undef;
-
     if (my $id = $c->req->param('id')) {
         my $source_codes = Perl::Lint::Playground::Web::M::SourceCodes->new(id => $id);
         $src = $source_codes->get_src();
         if (not defined $src) {
-            $c->res_404();
+            my $res = $c->render_json({error => 'Not Found'});
+            $res->status(404);
+            return $res;
         }
     }
 
-    return $c->render('index.tx', {src => $src});
+    return $c->render_json({src => $src});
 };
 
 post '/api/lint' => sub {

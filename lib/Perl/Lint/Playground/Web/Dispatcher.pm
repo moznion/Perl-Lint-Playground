@@ -37,7 +37,7 @@ post '/api/lint' => sub {
     my ($violations, $status) = Perl::Lint::Playground::Service::Lint::lint($src);
 
     if ($status == FAIL) {
-        my $res = $c->render_json({error => '!!! SEGV !!!'});
+        my $res = $c->render_json({error => '[ERROR] SEGV was occurd when tokenizing the code. It is possibly bug, so please report this!'});
         $res->status(500);
         return $res;
     }

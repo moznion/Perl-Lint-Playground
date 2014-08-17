@@ -38,6 +38,7 @@ $(function () {
         data: {
             violations: violations,
             showViolations: true,
+            error: ''
         },
         methods: {
             lint: function (mouseEvent, self) {
@@ -51,6 +52,7 @@ $(function () {
                 dfd.done(function(res) {
                     data.showViolations = true;
                     data.violations = res;
+                    data.error = '';
                 }).fail(function(res, status) {
                     data.showViolations = false;
                     data.error = status;

@@ -6,6 +6,7 @@ use Log::Minimal;
 use Amon2::Web::Dispatcher::RouterBoom;
 use Perl::Lint::Playground::Service::Lint;
 use Perl::Lint::Playground::Web::M::SourceCodes;
+use Perl::Lint::Playground::Constants;
 
 get '/' => sub {
     my ($c) = @_;
@@ -33,7 +34,15 @@ post '/api/lint' => sub {
     my ($c) = @_;
 
     my $src = $c->req->param('src');
-    return $c->render_json(Perl::Lint::Playground::Service::Lint::lint($src));
+    my ($violations, $status) = Perl::Lint::Playground::Service::Lint::lint($src);
+
+    if ($status == FAIL) {
+        my $res = $c->render_json({error => '!!! SEGV !!!'});
+        $res->status(500);
+        return $res;
+    }
+
+    return $c->render_json($violations);
 };
 
 post '/api/share' => sub {

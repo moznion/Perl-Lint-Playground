@@ -15,6 +15,7 @@ requires 'DBIx::Sunny', '0.22';
 requires 'Mouse', '2.3.0';
 requires 'Log::Minimal', '0.19';
 requires 'Digest::SHA1', '2.13';
+requires 'JSON::XS', '3.01';
 
 on configure => sub {
     requires 'Module::Build', '0.38';

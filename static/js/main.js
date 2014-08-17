@@ -56,6 +56,10 @@ $(function () {
                 }).fail(function(res, status) {
                     data.showViolations = false;
                     data.error = status;
+
+                    if (res.responseJSON.error) {
+                        data.error = res.responseJSON.error;
+                    }
                 });
 
                 $.ajax({

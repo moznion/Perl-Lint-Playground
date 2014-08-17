@@ -1,6 +1,5 @@
 requires 'Amon2', '6.09';
 requires 'HTML::FillInForm::Lite', '1.11';
-requires 'JSON', '2.50';
 requires 'Module::Functions', '2';
 requires 'Plack::Middleware::ReverseProxy', '0.09';
 requires 'Router::Boom', '0.06';

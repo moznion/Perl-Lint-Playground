@@ -22,7 +22,9 @@ sub lint {
     if ($pid) {
         wait;
 
-        return ([], FAIL) if $? != 0; # When SEGV, ABRT and etc...
+        if ($? != 0) { # When SEGV, ABRT and etc...
+            return ([], FAIL);
+        }
 
         $violations = decode_json($_ = <READH>);
     }
